@@ -7,3 +7,23 @@ springboot/mvnw
 springboot/HELP.md
 
 .vscode/launch.json
+oauth/.mvn/wrapper/maven-wrapper.properties
+oauth/HELP.md
+oauth/mvnw
+oauth/mvnw.cmd
+oauth/target/classes/application.yml
+oauth/target/classes/learning/oauth/HomeController.class
+oauth/target/classes/learning/oauth/OauthApplication.class
+oauth/target/classes/learning/oauth/PageInfo.class
+oauth/target/classes/learning/oauth/SearchId.class
+oauth/target/classes/learning/oauth/SearchListResponse.class
+oauth/target/classes/learning/oauth/SearchResult.class
+oauth/target/classes/learning/oauth/SearchSnippet.class
+oauth/target/classes/learning/oauth/SearchThumbnail.class
+oauth/target/classes/learning/oauth/SecurityConfig.class
+oauth/target/classes/learning/oauth/Youtube.class
+oauth/target/classes/learning/oauth/Youtube$Sort.class
+oauth/target/classes/learning/oauth/YoutubeConfig.class
+oauth/target/classes/static/style.css
+oauth/target/classes/templates/index.mustache
+oauth/target/test-classes/learning/oauth/OauthApplicationTests.class

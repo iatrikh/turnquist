@@ -4,7 +4,19 @@
     a web app using Spring Boot 3.0
 </p>
 
-<form action="/multi-field-search" method="post">
+<h3>User profile</h3>
+<ul>
+    <li>Username: {{authentication.name}}</li>
+    <li>Authorities: {{authentication.authorities}}</li>
+</ul>
+
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+<hr>
+
+{{! <form action="/multi-field-search" method="post">
     <label for="name">Name:</label>
     <input type="text" name="name">
 
@@ -12,22 +24,29 @@
     <input type="text" name="description">
 
     <button type="submit">Search</button>
-</form>
+</form> }}
 
 <form action="/universal-search" method="post">
     <label for="value">Search:</label>
     <input type="text" name="value">
+
     <button type="submit">Search</button>
 </form>
 
 <ul>
     {{#videos}}
-    <li>{{name}}</li>
+    <li>
+        {{name}} - {{description}}
+        <form action="/delete/videos/{{id}}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
     {{/videos}}
 </ul>
 
 <form action="/new-video" method="post">
     <input type="text" name="name">
     <input type="text" name="description">
+
     <button type="submit">Submit</button>
 </form>

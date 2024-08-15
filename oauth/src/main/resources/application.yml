@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: oauth
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: not for github
+            clientSecret: not for github
+
+            scope: openid, profile, email, https://www.googleapis.com/auth/youtube
