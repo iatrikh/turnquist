@@ -55,4 +55,10 @@ class VideoEntity {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "VideoEntity{id=" + id + ", username='" + username + "', name='" + name + "', description='"
+                + description
+                + "'}";
+    }
 }
