@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
@@ -44,6 +45,7 @@ public class SecurityConfig {
     }
 
     @Bean
+    // @Profile("setup")
     CommandLineRunner initUsers(UserManagementRepository userManageRepo, AppConfig appConfig) {
         return args -> userManageRepo.saveAll(appConfig.users());
     }
