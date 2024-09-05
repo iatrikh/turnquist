@@ -19,14 +19,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    interface GrantedAuthorityCnv extends Converter<String, GrantedAuthority> {
-    }
+    // interface GrantedAuthorityCnv extends Converter<String, GrantedAuthority> {
+    // }
 
-    @Bean
-    @ConfigurationPropertiesBinding
-    GrantedAuthorityCnv converter() {
-        return SimpleGrantedAuthority::new;
-    }
+    // @Bean
+    // @ConfigurationPropertiesBinding
+    // GrantedAuthorityCnv converter() {
+    //     return SimpleGrantedAuthority::new;
+    // }
 
     // @Bean
     // @ConfigurationPropertiesBinding
@@ -44,21 +44,21 @@ public class SecurityConfig {
         return username -> userRepo.findByUsername(username).asUser();
     }
 
-    @Bean
-    // @Profile("setup")
-    CommandLineRunner initUsers(UserManagementRepository userManageRepo, AppConfig appConfig) {
-        return args -> userManageRepo.saveAll(appConfig.users());
-    }
-
     // @Bean
-    // CommandLineRunner initUsers(UserManagementRepository userManageRepo) {
-    // return args -> {
-    // userManageRepo.save(new UserAccount("user", "pass", "ROLE_USER"));
-    // userManageRepo.save(new UserAccount("alice", "pass", "ROLE_USER"));
-    // userManageRepo.save(new UserAccount("bob", "pass", "ROLE_USER"));
-    // userManageRepo.save(new UserAccount("admin", "admin", "ROLE_ADMIN"));
-    // };
+    // // @Profile("setup")
+    // CommandLineRunner initUsers(UserManagementRepository userManageRepo, AppConfig appConfig) {
+    //     return args -> userManageRepo.saveAll(appConfig.users());
     // }
+
+    @Bean
+    CommandLineRunner initUsers(UserManagementRepository userManageRepo) {
+    return args -> {
+    userManageRepo.save(new UserAccount("user", "pass", "ROLE_USER"));
+    userManageRepo.save(new UserAccount("alice", "pass", "ROLE_USER"));
+    userManageRepo.save(new UserAccount("bob", "pass", "ROLE_USER"));
+    userManageRepo.save(new UserAccount("admin", "admin", "ROLE_ADMIN"));
+    };
+    }
 
     // <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}">
 

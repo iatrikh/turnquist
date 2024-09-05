@@ -14,19 +14,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
 
     private final VideoService videoService;
-    private final AppConfig appConfig;
+    // private final AppConfig appConfig;
 
-    public HomeController(VideoService videoService, AppConfig appConfig) {
+    public HomeController(VideoService videoService 
+    // AppConfig appConfig
+    ) {
         this.videoService = videoService;
-        this.appConfig = appConfig;
+        // this.appConfig = appConfig;
     }
 
     @GetMapping("/")
     public String index(Model model, Authentication authentication) {
         model.addAttribute("videos", videoService.getVideos());
         model.addAttribute("authentication", authentication);
-        model.addAttribute("header", appConfig.header());
-        model.addAttribute("intro", appConfig.intro());
+        // model.addAttribute("header", appConfig.header());
+        // model.addAttribute("intro", appConfig.intro());
         return "index";
     }
 
@@ -50,8 +52,8 @@ public class HomeController {
         model.addAttribute("search", search);
         model.addAttribute("videos", searchResults);
         model.addAttribute("authentication", authentication);
-        model.addAttribute("header", appConfig.header());
-        model.addAttribute("intro", appConfig.intro());
+        // model.addAttribute("header", appConfig.header());
+        // model.addAttribute("intro", appConfig.intro());
         return "index";
     }
 
